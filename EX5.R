@@ -34,7 +34,7 @@ for(sig in seq(from = 0, to = 1, by = 0.1)){
         #Seleciona aleatoriamente 80% das amostras e respostas treino de cada tipo
         #Os 30% restantes são para teste do modelo
         dadosClasseN = Glass[Glass$Type == levels[j],]
-        sampleTreino = sample.split(dadosClasseN$Type, 0.9)
+        sampleTreino = sample.split(dadosClasseN$Type, 0.8)
         porcentagemTreino = rbind(porcentagemTreino, dadosClasseN[sampleTreino,])
         porcentagemTeste = rbind(porcentagemTeste, dadosClasseN[!sampleTreino,])
       }
@@ -70,8 +70,8 @@ rownames(acu) = as.character(seq(from = 0, to = 1, by = 0.1))
 colnames(acu) = as.character(seq(from = 1, to = 10, length.out = 10))
 rownames(err) = as.character(seq(from = 0, to = 1, by = 0.1))
 colnames(err) = as.character(seq(from = 1, to = 10, length.out = 10))
-write.table(acu, "acu90.csv", sep = ";", dec = ",")
-write.table(err, "err90.csv", sep = ";", dec = ",")
+write.table(acu, "acu80.csv", sep = ";", dec = ",")
+write.table(err, "err80.csv", sep = ";", dec = ",")
 print(listaRetorno)
 
   
